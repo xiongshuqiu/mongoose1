@@ -1,11 +1,11 @@
 //1.导入连接函数封装对象、文档数据结构及模型封装对象
 const connectDb = require("./dbConnection");
-const elderly = require("./models/elderlyModel");
+const divisional_management = require("./models/divisional_managementModel");
 //2.定义一个async（异步操作） 函数名称为getElderly
-async function getElderly() {
-    const prod1 = await elderly
-        .findOne({elderlyName: 'liyi' })
-        .select({elderlyName:1,familyInformation:1})
+async function getManagement() {
+    const prod1 = await divisional_management
+        .findOne({departmentName:"department of the elderly"})
+        . populate('{departmentNumber"D02"')
         .exec();
 
     //console.log(`get ${prod1.suppliers}`);
@@ -13,5 +13,5 @@ async function getElderly() {
 }
 //3.连接、执行查找函数操作
 connectDb();
-getElderly();
+getManagement();
 // https://github.com/Zbjfei/shareCharts.git

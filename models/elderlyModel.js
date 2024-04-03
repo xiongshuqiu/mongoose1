@@ -6,16 +6,14 @@ const { ObjectId } = require("mongodb");//定义对象ID,从mongodb中导入
 //2.设置文档结构对象（相当于文档格式）
 const elderlySchema = mongoose.Schema(
   {
-    _id: {
-      type: ObjectId
-    },
+   
     departmentNumber: {
       type: String
     },
      elderlyNumber: {
       type: String
     },
-    ederlyName: {
+    elderlyName: {
       type: String
     },
     gender:{
