@@ -1,0 +1,45 @@
+//1.导入mongoose、Date、ObjectId
+const mongoose = require("mongoose");//定义moogoose服务，从mongoose中导入
+const { Date } = require("mongoose");//定义日期，从mongoose中导入
+const { ObjectId } = require("mongodb");//定义对象ID,从mongodb中导入
+
+//2.设置文档结构对象（相当于文档格式）
+const elderlySchema = mongoose.Schema(
+  {
+    _id: {
+      type: ObjectId
+    },
+    departmentNumber: {
+      type: String
+    },
+     elderlyNumber: {
+      type: String
+    },
+    ederlyName: {
+      type: String
+    },
+    gender:{
+      type: String
+    },
+     age:{
+      type: Number
+    },
+    elderlyPhone:{
+      type: Number
+    },
+    checkInDate:{
+      type:Date
+    },
+    roomNumber:{
+      type: Number
+    },
+    responsibleDoctor:[
+     String
+    ],
+    familyInformation:
+    {name:String,phone:Number,relation:String}
+    
+  }
+);
+//3.创建文档模型对象（相当于集合）
+module.exports = mongoose.model("elderly", elderlySchema, "elderly");
